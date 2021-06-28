@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>QR Code Maker via Google</title>
+        <link href="https://fonts.googleapis.com/css2?family=Benne&family=Source+Code+Pro&display=swap" rel="stylesheet">
+        <style>
+            body {
+                margin: 40px 20px 40px 20px;
+                font-family: 'Benne', serif;
+            }
+            h1 {
+                text-align: center;
+                padding-bottom: 10px;
+            }
+            h2 {
+                padding-top: 10px;
+                padding-bottom: 5px;
+            }
+            code {
+                font-family: 'Source Code Pro', monospace;
+                font-size: .85em;
+                background-color: #dfdfdf;
+                padding: 2px 5px 2px 5px;
+                -webkit-user-select: all;
+                -ms-user-select: all;
+                user-select: all;
+            }
+            textarea {
+                font-family: 'Source Code Pro', monospace;
+            }
+            .maker {
+                background-color: lightblue;
+                border-bottom: 5px solid black;
+                padding: 50px;
+            }
+            .docs {
+                font-size: .85em;
+            }
+            .license {
+                background-color: mintcream;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>QR Code Maker</h1>
+        <p style="text-align: center; text-decoration: underline;"><strong>Disclaimer:</strong> The page requires Google to still maintain their system.  If this no longer works, then Google may have deprecated it permanentely.</p>
+        <div class="maker">
+            <h2>Encoding Area</h2>
+            <form action="https://chart.googleapis.com/chart" method="POST" target="_blank">
+                <input type="hidden" name="cht" value="qr" />
+                <input type="hidden" name="chs" value="350x350" />
+                <label for="dataset">Data to encode in the QR code.</label><br>
+                <textarea name="chl" rows="10" cols="50" id="dataset"></textarea><br><br>
+                <label for="correction">Error Correction:</label>
+                <select name="chld" id="correction">
+                    <option value="L">L – 7%</option>
+                    <option value="M" selected>M – 15%</option>
+                    <option value="Q">Q – 25%</option>
+                    <option value="H">H – 30%</option>
+                </select>
+                <br><br>
+                <input type="submit">
+                <input type="reset">
+            </form>
+        </div>
+        <div class="docs">
+        <h2>Notes on creating QR Codes</h2>
+        <p>For QR codes to work in the form of a "call to action" then they need to have a protocol associated with them.  An example of a protocol is <code>https://</code>.  This tells the smartphone that it will populate a website address.  Below are some examples of protocols to utilize on a phone.</p>
+        <p><strong>Source:</strong> <a href="https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html" target="_blank">https://developer.apple.com/library/archive/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html</a></p>
+        <h2>Protocol Examples</h2>
+        <p>Email using an email application – <code>mailto:example.user@example.com</code></p>
+        <p>Telephone Call – <code>tel:1-208-555-1212</code></p>
+        <p>SMS or Text Messaging – <code>sms:1-208-555-1212</code></p>
+        <p>Website – <code>https://www.example.com</code></p>
+        <h2>Website Strategies</h2>
+        <p>Due to the "static" nature of QR codes, it is impossible to change the QR code after it has been generated.  Therefore it is recommended that a URL forwarding service be utilized to create "dynamic" weblinks.  An example of this service is <a href="https://www.bit.ly" target="_blank">bit.ly</a>.</p>
+        <h2>Data Source Encoding</h2>
+        <p>Other data types, such as vCARDS can be encoded into a QR code.  Most phones will recognize the format will ask the user to create a contact.  It does not automatically place the data in the user's contact list.</p>
+        <div class="license">
+            <h2>License</h2>
+            <p>Services provided by Google are subject to the terms of service and privacy policy.  The contents of this file is a open source; General Public License.  Please make modifications as you see fit.</p>
+        </div>
+        </div>
+    </body>
+</html>
